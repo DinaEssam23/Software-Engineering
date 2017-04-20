@@ -31,7 +31,7 @@ public class LoginController extends WebMvcConfigurerAdapter {
 	}
 
 	@RequestMapping("/login")
-	public String viewResult(@RequestParam("name") String name, @RequestParam("password") String password)
+	public String Redirect(@RequestParam("name") String name, @RequestParam("password") String password)
 			throws SQLException {
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/brightminds?useSSL=false", "nouran",
 				"root");

@@ -52,7 +52,7 @@ public class GameController extends WebMvcConfigurerAdapter {
 	}
 
 	@PostMapping("/CreatingGame")
-	public String addCourse(Model model, @ModelAttribute @Valid Game game, BindingResult bindingResult) {
+	public String addGame(Model model, @ModelAttribute @Valid Game game, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
 			return "CreatingGame";
 		}

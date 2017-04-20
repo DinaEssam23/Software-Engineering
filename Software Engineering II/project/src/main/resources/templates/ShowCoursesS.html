@@ -15,7 +15,7 @@ which course you want to choose ?
 	> Courses are [[${result}]]  </p>
 <Form action="/games">
 <input type = "text" name = "course"/> <!-- l name da ely hy5leny ageb l games bta3to fl page ely asmha show games -->
-<input type  = "submit" value = "Go" />
+<input type  = "submit" value = "Show Games of this Course" />
 </Form>
 
 <p th:if="${games}"
@@ -23,5 +23,14 @@ which course you want to choose ?
 	th:inline="text"
 	> Courses are [[${games}]]  </p>
 	
+<pre>			which Game you want to play : 	 from course : 
+
+</pre>
+
+<form action="/play">
+	<input type = "text" name = "game"/>
+	<input type = "text" name = "course"/>
+	<input type="submit" value="Play"/>	
+	</form>
 </body>
 </html>
