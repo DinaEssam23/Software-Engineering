@@ -37,7 +37,8 @@ public class Student {
 	private String nationality;
 
 	private int score;
-	private String type = "student";
+	private String VerificationCode = ""; // 3shan f teacher not empty
+	private String type = "student"; // 3shan a3rf hd5ol f anhy page fl login
 
 	public Integer getId() {
 		return id;

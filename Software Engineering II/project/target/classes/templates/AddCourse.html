@@ -1,0 +1,31 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Add Course</title>
+</head>
+
+<pre>
+				Add Your Course
+
+</pre>
+<body>
+<form action="#"  method = "post" th:action="@{/AddCourse}" th:object="${course}">
+<label>name</label><input type  = "text" th:field="*{name}"/>
+		<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</p>
+		<br></br>
+		
+<label>age</label><input type  = "number" th:field="*{age}"/>
+			<p th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</p>
+		<br></br>
+		
+<label>bio</label><input type  = "text" th:field="*{bio}"/>
+		<p th:if="${#fields.hasErrors('bio')}" th:errors="*{bio}">Bio Error</p>
+		<br></br>
+		
+<input type = "submit" value= "Save"/>
+
+</form>
+
+</body>
+</html>

@@ -23,8 +23,8 @@ public class StudentController extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/SignupStudent").setViewName("SignupStudent"); // games
-																					// form
+		registry.addViewController("/WelcomeStudent").setViewName("WelcomeStudent");
+
 	}
 
 	@GetMapping("/SignupStudent")
@@ -47,7 +47,6 @@ public class StudentController extends WebMvcConfigurerAdapter {
 		System.out.println(student.getScore());
 		repo.save(student);
 		model.addAttribute("student", new Student());
-		return "SignupStudent";
-		// return "redirect:/results"; //games b3deen
+		return "redirect:/WelcomeStudent";
 	}
 }

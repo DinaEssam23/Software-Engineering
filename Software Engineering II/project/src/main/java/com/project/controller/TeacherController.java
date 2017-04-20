@@ -23,8 +23,7 @@ public class TeacherController extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/SignupTeacher").setViewName("SignupTeacher"); // games
-																					// form
+		registry.addViewController("/WelcomeTeacher").setViewName("WelcomeTeacher");
 	}
 
 	@GetMapping("/SignupTeacher")
@@ -46,8 +45,7 @@ public class TeacherController extends WebMvcConfigurerAdapter {
 			System.out.println(teacher.getVerificationCode());
 			repo.save(teacher);
 			model.addAttribute("teacher", new Teacher());
-			return "SignupTeacher";
-			// return "redirect:/results"; //games b3deen
+			return "redirect:/WelcomeTeacher";
 		}
 	}
 }

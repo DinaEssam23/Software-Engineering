@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Show Courses as Student</title>
+</head>
+<body>
+<form action = "/result">
+which course you want to choose ? 
+		<input type  = "submit" value = "View All Courses" />
+		</form>
+<p th:if="${result}"
+	
+	th:inline="text"
+	> Courses are [[${result}]]  </p>
+<Form action="/games">
+<input type = "text" name = "course"/> <!-- l name da ely hy5leny ageb l games bta3to fl page ely asmha show games -->
+<input type  = "submit" value = "Go" />
+</Form>
+
+<p th:if="${games}"
+	
+	th:inline="text"
+	> Courses are [[${games}]]  </p>
+	
+</body>
+</html>

@@ -33,13 +33,14 @@ public class Teacher {
 	private String nationality;
 
 	@NotEmpty
+	@Size(min = 4, max = 20)
 	private String VerificationCode;
 
 	@NotEmpty
 	@Size(min = 8, max = 20)
 	private String password;
 
-	private String type = "teacher";
+	private String type = "teacher"; // 3shan a3rf hd5ol f anhy page fl login
 	private int score = -1; // 3lshan mynf3sh fl db tkon b-null 3shan int fa
 							// lazm
 							// ay initial value
