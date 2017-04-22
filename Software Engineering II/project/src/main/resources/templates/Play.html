@@ -5,7 +5,62 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- Show all questions and choices of specific game and [field] to write answer and check for it -->
-<!-- write score at the end -->
+
+
+<pre>		
+which Game you want to Show its Questions :  From Course : 
+
+</pre>
+
+<form action = "/show">
+
+	<input type = "text" name = "game"/>
+	<input type = "text" name = "course"/>
+		<input type  = "submit" value = "View Questions" />
+		</form>
+<!--  <p th:if="${show}"
+	
+	th:inline="text"
+	> Courses are [[${show}]]  </p>
+	-->
+	<table border ="1">
+			<tr>
+				
+				<td>Question</td>
+				<td>Choices</td>
+			</tr>
+			<tr th:each="question : ${questions}">
+				<td th:text="${question.question}"></td>
+				<td th:text="${question.choices}"></td>
+			</tr>
+		</table>
+	
+<pre>
+Which Game you want to Answer its Questions : From Course : </pre>
+<Form action="/answers">
+
+	<input type = "text" name = "game"/>
+	<input type = "text" name = "course"/>
+	<br></br>
+	<br></br>
+	
+<label> Answer of Question1 </label><input type = "text" name = "answer1" />
+<br></br>
+
+<label> Answer of Question2 </label><input type = "text" name = "answer2"/>
+<br></br>
+
+<label> Answer of Question3 </label><input type = "text" name = "answer3"/>
+<br></br>
+
+<input type = "submit" value= "Submit"/>
+</Form>
+
+<p th:if="${answers}"
+	
+	th:inline="text"
+	> Your Score is [[${answers}]]  </p>
+
+
 </body>
 </html>

@@ -1,5 +1,8 @@
 package com.project.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -50,8 +52,32 @@ public class CourseController extends WebMvcConfigurerAdapter {
 		return "redirect:/ShowCoursesT";
 	}
 
-	@GetMapping("/result")
-	public @ResponseBody Iterable<Course> showAllCoures() {
-		return repo.findAll();
+	// return as Jason
+	// @GetMapping("/result")
+	// public @ResponseBody Iterable<Course> showAllCoures() {
+	// return repo.findAll();
+	// }
+
+	@GetMapping("/coursesS")
+	public String showCoursesS(Model model) {
+		Iterable<Course> coursesIT = repo.findAll();
+		List<Course> coursesList = new ArrayList<Course>();
+		for (Course course : coursesIT) {
+			coursesList.add(course);
+		}
+		model.addAttribute("courses", coursesList);
+		return "ShowCoursesS";
 	}
+
+	@GetMapping("/coursesT")
+	public String showCoursesT(Model model) {
+		Iterable<Course> coursesIT = repo.findAll();
+		List<Course> coursesList = new ArrayList<Course>();
+		for (Course course : coursesIT) {
+			coursesList.add(course);
+		}
+		model.addAttribute("courses", coursesList);
+		return "ShowCoursesT";
+	}
+
 }

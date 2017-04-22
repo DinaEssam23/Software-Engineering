@@ -14,6 +14,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @Controller
 public class LoginController extends WebMvcConfigurerAdapter {
+	public static String loggedname;
+	public static String loggedpassword;
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
@@ -25,27 +27,20 @@ public class LoginController extends WebMvcConfigurerAdapter {
 
 	}
 
-	@RequestMapping("/Login")
-	public String Login() {
-		return "Login";
-	}
-
 	@RequestMapping("/login")
-	public String Redirect(@RequestParam("name") String name, @RequestParam("password") String password)
+	public String login(@RequestParam("name") String name, @RequestParam("password") String password)
 			throws SQLException {
+		loggedname = name;
+		loggedpassword = password;
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/brightminds?useSSL=false", "nouran",
 				"root");
 		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt
-				.executeQuery("SELECT name, password,type FROM users WHERE name = name and password = password");
+		ResultSet rs = stmt.executeQuery("SELECT name, password,type FROM users");
 
-		String type = "";
-		String username = "";
-		String pass = "";
 		while (rs.next()) {
-			type = rs.getString("type");
-			username = rs.getString("name");
-			pass = rs.getString("password");
+			String type = rs.getString("type");
+			String username = rs.getString("name");
+			String pass = rs.getString("password");
 			if (type.equals("student") && username.equals(name) && pass.equals(password)) {
 				return "redirect:/WelcomeStudent";
 			}

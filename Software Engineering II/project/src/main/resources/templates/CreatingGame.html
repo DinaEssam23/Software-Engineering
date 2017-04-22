@@ -11,7 +11,7 @@
 		<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</p>		
 		<br></br>
 		
-		<label>Description</label><input type  = "text" th:field="*{description}"/>
+		<label>Description</label><input type  = "text"  value="You must write the form of answer that should be entered."  th:field="*{description}"/>
 			<p th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</p>
 		<br></br>
           
@@ -22,5 +22,7 @@
 		<input type  = "submit" value = "Add Questions" />
 		
 </Form>
+<pre>
+Note: Please Name the Course already created in the list of courses to save it safely</pre>
 </body>
 </html>

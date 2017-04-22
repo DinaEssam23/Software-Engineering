@@ -7,30 +7,47 @@
 <body>
 <pre> Add you game Questions : </pre>
 
-<form action="#"  method = "post" th:action="@{/QA}" th:object="${questions}">
+<form action="/add" >
 
-<label>Name of the Game</label><input type  = "text" th:field="*{Gname}" />
-<p th:if="${#fields.hasErrors('Gname')}" th:errors="*{Gname}">Name Error</p>
+		<label>Name of the Game</label><input type  = "text"  name ="Gname"/>
+			<br></br>
+		
+		<label>Question1</label><input type  = "text" name ="question1" />
 		<br></br>
 		
-<label>Question</label><input type  = "text" th:field="*{question}"/>
-	<p th:if="${#fields.hasErrors('question')}" th:errors="*{question}">Question Error</p>
+		<label>Choices1</label><input type  = "text" name="choices1"/>
+		<br></br>
+		
+		<label>Answer1</label><input type  = "text"  name="answer1"/>
+        <br></br>
+		
+		<label>Question2</label><input type  = "text" name ="question2"/>
 
 		<br></br>
 		
-		<label>Choices</label><input type  = "text" th:field="*{choices}"/>
-		<p th:if="${#fields.hasErrors('choices')}" th:errors="*{choices}">Choices Error</p>
+		<label>Choices2</label><input type  = "text"  name="choices2" />
 		<br></br>
 		
-		<label>Answer</label><input type  = "text" th:field="*{answer}"/>
-		<p th:if="${#fields.hasErrors('answer')}" th:errors="*{answer}">Answer Error</p>
+		<label>Answer2</label><input type  = "text"  name="answer2"/>
+          		<br></br>
+		
+		<label>Question3</label><input type  = "text" name ="question3"/>
+
+		<br></br>
+		
+		
+		<label>Choices3</label><input type  = "text"  name="choices3" />
+		<br></br>
+		
+		<label>Answer3</label><input type  = "text" name="answer3"/>
           		<br></br>
           		
-          <label>Course</label><input type  = "text" th:field="*{Gcourse}"/>
-		<p th:if="${#fields.hasErrors('Gcourse')}" th:errors="*{Gcourse}">Course Error</p>		
+          <label>Course</label><input type  = "text"  name="Gcourse"/>
           		<br></br>
           		
-			<input type="submit" value="Save"/>
+		<input type="submit" value="Save"/>
 </form>
+<pre>
+Note : Please enter the same Name of the Game and Course to save it safely :) </pre>
 </body>
 </html>
